@@ -10,9 +10,25 @@
     <script>
         (function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = 'c32b8cc6-3764-4e5d-9b76-614340a4b297'; u[r].m = ['getReferrerInfo', 'identify', 'integrationsReady', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://cdn.getambassador.com', 'mbsy', true);
     </script>
+     <script>
+        function mbsyUpdateForm() {
+          mbsy.getReferrerInfo(function (referrerData) {
+            var mbsyInterval = setInterval(function () {
+              var mbsyShortCodeField = document.getElementById("short_code");
+              var mbsyCampaignUidField = document.getElementById("campaign_uid");
+              if (mbsyShortCodeField && mbsyCampaignUidField) {
+                mbsyShortCodeField.value = referrerData.shortCode;
+                mbsyCampaignUidField.value = referrerData.campaign;
+                clearInterval(mbsyInterval);
+              }
+            }, 100);
+          });
+        }
+        mbsyUpdateForm();
+      </script>
 </head>
 <body>
-    <form>
+    <form id="formId" onsubmit="sendCommission(event)" name="formId">
         <h3>Sign Up For Our Referral Program</h3>
         <label for="email">
             Email: <input id='email' type='email' name='email' required />
@@ -25,5 +41,18 @@
             <button type="reset">Reset</button>
         </div>
     </form>
+    <script>
+        let conversion = false;
+        function sendCommission(event) {
+          event.preventDefault();
+          const form = document.getElementById("formId");
+          const formData = new FormData(form);
+          const email = formData.get("email");
+          const short_code = formData.get("short_code");
+          const campaign_uid = formData.get("campaign_uid");
+          mbsy.identify({ email: email });
+          conversion = true;
+        }
+      </script>
 </body>
 </html>
