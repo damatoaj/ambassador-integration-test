@@ -21,5 +21,12 @@
             <button type="reset">Reset</button>
         </div>
     </form>
+    <iframe height="800" width="500" src="https://arthurtest.getambassador.com" id="iframe"></iframe>
+    <script>
+        const iframe=document.getElementById('iframe')
+        window.addEventListener('message', function(e) {
+            console.log(e)
+        })
+    </script>
 </body>
 </html>
