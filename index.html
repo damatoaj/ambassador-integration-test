@@ -45,6 +45,7 @@
     <script>
         const iframe=document.getElementById('iframe')
         window.addEventListener('message', function(e) {
+                console.log(e)
             if (e.origin !== 'https://arthurtest.getambassador.com/') return
             if (e.data === 'close iframe') {
                 iframe.remove();
