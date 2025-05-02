@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration</title>
+    <link rel='stylesheet' href='./style.css' />
+
+    <script>(function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '2f402558-2bb1-4973-9a46-42e486875ba5'; u[r].m = ['getReferrerInfo', 'identify', 'integrationsReady', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://us-snippet.airdna.co', 'mbsy_1', true);</script>
+    <script>(function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '34d12b7e-1786-4ed5-90f0-3b4b4122eb52'; u[r].m = ['getReferrerInfo', 'identify', 'integrationsReady', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://eur-snippet.airdna.co', 'mbsy_2', true);</script>
+    <script>(function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '9245413a-bdca-4a3d-8801-291d01a23f7a'; u[r].m = ['getReferrerInfo', 'identify', 'integrationsReady', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://gbp-snippet.airdna.co', 'mbsy_3', true);</script>
+</head>
+
+<body>
+    <a href="/index.html"> Home</a>
+    <form id="formId" onsubmit="sendCommission(event)" name="formId">
+        <h3>Sign Up For Our Referral Program</h3>
+        <label for="email">
+            Email: <input id='email' type='email' name='email' required />
+            <span></span>
+        </label>
+        <input id='short_code' type="hidden" value='' name="short_code" />
+        <input id='campaign_uid' type="hidden" value='' name='campaign_uid' />
+        <div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    <script>
+        let conversion = false;
+        function sendCommission(event) {
+          event.preventDefault();
+          const form = document.getElementById("formId");
+          const formData = new FormData(form);
+          const email = formData.get("email");
+          const short_code = formData.get("short_code");
+          const campaign_uid = formData.get("campaign_uid");
+          mbsy.identify({ email: email });
+          conversion = true;
+        }
+      </script>
+</body>
+</html>
